@@ -23,22 +23,23 @@ numbers = [
 
 def getBiggestProductFromHorizontalLines(numbers, digitNum):
   max = 0
-  line = numbers[0]
   i = 0
-  while True:
-    removeLastCharIndex = len(line) - digitNum - i
-    if removeLastCharIndex != 0:
-      string = line[i:-(removeLastCharIndex)]
-    else:
-      string = line[i:]
-    product = 1
-    for num in string:
-      product *= int(num)
-    if product > max:
-      max = product
-    if len(line) == i + digitNum:
-      break
-    i += 1
+  for line in numbers:
+    while True:
+      removeLastCharIndex = len(line) - digitNum - i
+      if removeLastCharIndex != 0:
+        string = line[i:-(removeLastCharIndex)]
+      else:
+        string = line[i:]
+      product = 1
+      for num in string:
+        product *= int(num)
+      if product > max:
+        max = product
+      if len(line) == i + digitNum:
+        break
+      i += 1
   return max
 
 biggestHorizontal = getBiggestProductFromHorizontalLines(numbers, 4)
+print(biggestHorizontal)
