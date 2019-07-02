@@ -1,15 +1,19 @@
-def is_prime(n):
-    if n == 2:
-        return True
-    elif n == 0 or n == 1 or n % 2 == 0:
-        return False
-    else:
-        for i in range(2, n):
-            if n % i == 0:
-                return False
-            else:
-                prime = True
-        return prime
+    
+from math import ceil
+def is_prime(num):
+  top = int(ceil(num ** 0.5))
+  for x in range(3, top + 1, 2):
+    if num % x == 0:
+      return False
+  return True
 
-
-print(sum(list(i for i in range(2, 2 * 10 ** 6) if is_prime(i))))
+def primes(max=10):
+  yield 2
+  found = 1
+  current = 3
+  while current < max:
+    if is_prime(current):
+      yield current
+      found += 1
+    current += 2
+print(sum(primes(2000000)))
