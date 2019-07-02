@@ -1,15 +1,18 @@
-def primes(n):
-	ps, cur = [2], 3
-	yield 2
-	while True:
-		y = int(math.sqrt(cur))
-		c = next((x for x in ps if x < y and (cur % x) == 0), None)
+from math import ceil
+def is_prime(num):
+  top = int(ceil(num ** 0.5))
+  for x in range(3, top + 1, 2):
+    if num % x == 0:
+      return False
+  return True
 
-		if c == None:
-			yield cur
-			ps.append(cur)
-
-		cur += 2
-        if n == 10002:
-            break
-print(max(list(i for i in primes(10001))))
+def primes(max=10):
+  yield 2
+  found = 1
+  current = 3
+  while found < max:
+    if is_prime(current):
+      yield current
+      found += 1
+    current += 2
+print(list(i for i in primes(10001))[-1])
