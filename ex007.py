@@ -12,4 +12,4 @@ def primes(n):
 		cur += 2
         if n == 10002:
             break
-PrimeList(10001)
+print(max(list(i for i in primes(10001))))
