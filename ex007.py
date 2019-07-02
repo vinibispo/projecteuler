@@ -1,18 +1,15 @@
-def isPrime(n):
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
+def primes(n):
+	ps, cur = [2], 3
+	yield 2
+	while True:
+		y = int(math.sqrt(cur))
+		c = next((x for x in ps if x < y and (cur % x) == 0), None)
 
-def PrimeList(n):
-    l = list()
-    a = 1
-    while True:
-        a = a + 1
-        if isPrime(a):
-            l.append(a)
-        if len(l) == n:
+		if c == None:
+			yield cur
+			ps.append(cur)
+
+		cur += 2
+        if n == 10002:
             break
-    print(max(l))
-
 PrimeList(10001)
