@@ -1,18 +1,19 @@
-def getBiggestNumberThatIsEvenlyDivisible(limitNumber):
-  testNumber = 2
+def getSmallestNumberThatIsEvenlyDivisible(initialNumber,limitNumber):
+  a = initialNumber
+  b = 2
   while True:
-    i = 2
-    while True:
-      if testNumber % i != 0:
-        break
-      if i == limitNumber:
-        return testNumber
-      i += 1
-    testNumber += 1
-    
-  
-  return True
+    b = mmc(a, b)
+    a += 1
+    if a == limitNumber:
+      return b
 
-
-
-print(getBiggestNumberThatIsEvenlyDivisible(20))
+def mmc(a, b):
+  c = a
+  d = b
+  resto = None
+  while resto is not 0:
+    resto = c % d
+    c = d
+    d = resto
+  return int(a*b/c)
+print(getSmallestNumberThatIsEvenlyDivisible(1, 20))
