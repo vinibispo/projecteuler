@@ -9,9 +9,10 @@ def collatz_sequence(n):
     return c
 n = 10 ** 6
 largest = 0
+index = 0
 for i in range(1, n + 1):
     c = collatz_sequence(i)
     if c > largest:
         largest = c
-        print(largest)
-print(largest)
+        index = i
+print(index)
