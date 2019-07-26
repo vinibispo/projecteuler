@@ -8,5 +8,3 @@ def palindrome(n):
                 l.append(i * j)
     return max(l)
 print(palindrome(3))
-
-    # nT5UWeVQDk3nA8?uJX{Weu}u
